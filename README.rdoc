@@ -1,0 +1,21 @@
+= range_subset
+
+http://github.com/edwagner/range-subset
+
+== DESCRIPTION:
+
+A simple extension to Ruby's core Range class to determine overlaps between two Ranges.
+
+== INSTALL:
+
+  [sudo] gem install edwagner-range-subset
+
+ or
+ 
+  git clone git://github.com/edwagner/range-subset.git
+  cd range-subset
+  rake install
+  
+== COPYRIGHT:
+
+Copyright (c) 2009 Ed Wagner. See LICENSE for details.

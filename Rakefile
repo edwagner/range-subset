@@ -4,10 +4,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
     s.name = "range-subset"
-    s.summary = %Q{TODO}
+    s.summary = %Q{A simple extension to Ruby's core Range class to determine overlaps between two Ranges.}
     s.email = "ed@edwagner.org"
     s.homepage = "http://github.com/edwagner/range-subset"
-    s.description = "TODO"
+    s.description = "A simple extension to Ruby's core Range class to determine overlaps between two Ranges."
     s.authors = ["Ed Wagner"]
   end
 rescue LoadError
@@ -43,3 +43,22 @@ rescue LoadError
 end
 
 task :default => :spec
+
+def egrep(pattern)
+  Dir['**/*.rb'].each do |fn|
+    count = 0
+    open(fn) do |f|
+      while line = f.gets
+        count += 1
+        if line =~ pattern
+          puts "#{fn}:#{count}:#{line}"
+        end
+      end
+    end
+  end
+end
+ 
+desc "Look for TODO and FIXME tags in the code"
+task :todo do
+  egrep /(FIXME|TODO|TBD)/
+end
